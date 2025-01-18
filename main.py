@@ -23,7 +23,7 @@ def display_cards(cards):
             st.image(imgs[i], caption=cards[i])
 
 def interpret_cards(question, cards):
-    meanings = [card_to_meaning(card) for card in cards]
+    meanings = [card_to_meaning[card] for card in cards]
     prompt = f"""
     You are a tarot card reader. The user has drawn three cards: {cards}. 
     Their meanings are: {meanings}. The user asks: "{question}". 
