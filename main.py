@@ -23,11 +23,14 @@ def display_cards(cards):
             st.image(imgs[i], caption=cards[i])
 
 def interpret_cards(question, cards):
-    meanings = [card_to_meaning[card] for card in cards]
     prompt = f"""
-    You are a tarot card reader. The user has drawn three cards: {cards}. 
-    Their meanings are: {meanings}. The user asks: "{question}". 
-    Summarize the card meanings and provide a thoughtful answer in the context of the question.
+    Question: {question}
+    Cards drawn: {', '.join(cards)}
+    Card meanings:
+    - {cards[0]}: {card_to_meaning[cards[0]]}
+    - {cards[1]}: {card_to_meaning[cards[1]]}
+    - {cards[2]}: {card_to_meaning[cards[2]]}
+    Combine the meanings of the cards and answer in context of question. Answer in russian.
     """
     messages = [{"role": "user", "content": prompt}]
     completion = client.chat.completions.create(
