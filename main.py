@@ -4,6 +4,7 @@ import numpy as np
 from huggingface_hub import InferenceClient
 import cv2
 
+API_KEY = st.secrets["API_KEY"]
 client = InferenceClient(api_key=API_KEY)
 
 df = pd.read_csv('data/tarot_short.csv')
