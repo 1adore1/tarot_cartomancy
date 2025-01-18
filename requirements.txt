@@ -1,0 +1,6 @@
+streamlit
+huggingface_hub
+pandas
+numpy
+opencv-python
+opencv-python-headless
