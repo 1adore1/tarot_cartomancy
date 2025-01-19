@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from huggingface_hub import InferenceClient
 import cv2
+import time
 
 API_KEY = st.secrets["API_KEY"]
 client = InferenceClient(api_key=API_KEY)
@@ -20,7 +21,16 @@ def display_cards(cards):
         imgs.append(cv2.imread('cards/' + card_to_img[card]))
     for i, col in enumerate(st.columns(3)):
         with col:
+            time.sleep(1)
             st.image(imgs[i], caption=cards[i])
+
+def display_text(text, delay=0.005):
+    placeholder = st.empty()
+    current_text = ''
+    for char in text:
+        current_text += char
+        placeholder.markdown(current_text)
+        time.sleep(delay)
 
 def interpret_cards(question, cards):
     prompt = f"""
@@ -49,9 +59,11 @@ def main():
     question = st.text_input("Ask your question: ")
     if question:
         cards = get_triplet()
+        answer = None
+        with st.spinner("Generating answer..."):
+            answer = interpret_cards(question, cards)
         display_cards(cards)
-        answer = interpret_cards(question, cards)
-        st.write(answer['content'])
+        display_text(answer['content'])
 
 if __name__ == "__main__":
     main()
