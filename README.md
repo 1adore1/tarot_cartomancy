@@ -1,6 +1,6 @@
 # Tarot Cartomancy
 
-![Tarot Example](https://github.com/1adore1/tarot-cartomancy/blob/main/img.png)
+![Tarot Example](https://github.com/1adore1/tarot_cartomancy/blob/main/img.png)
 
 ### Overview
 
