@@ -30,9 +30,9 @@ def interpret_cards(question, cards):
     - {cards[0]}: {card_to_meaning[cards[0]]}
     - {cards[1]}: {card_to_meaning[cards[1]]}
     - {cards[2]}: {card_to_meaning[cards[2]]}
-    Combine the meanings of the cards and answer in context of question. 
-    Write about 8 sentences, 4 paragraphs, 2 sentences for each card and 2 for resume. 
-    Answer in russian.
+    Write a structured response in the question's language:  
+    - First three paragraphs (2 sentences each) interpret each card in order.  
+    - The last paragraph (2 sentences) summarizes and gives a final answer. 
     """
     messages = [{"role": "user", "content": prompt}]
     completion = client.chat.completions.create(
@@ -49,8 +49,8 @@ def main():
     question = st.text_input("Ask your question: ")
     if question:
         cards = get_triplet()
-        answer = interpret_cards(question, cards)
         display_cards(cards)
+        answer = interpret_cards(question, cards)
         st.write(answer['content'])
 
 if __name__ == "__main__":
