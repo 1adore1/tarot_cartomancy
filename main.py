@@ -30,13 +30,15 @@ def interpret_cards(question, cards):
     - {cards[0]}: {card_to_meaning[cards[0]]}
     - {cards[1]}: {card_to_meaning[cards[1]]}
     - {cards[2]}: {card_to_meaning[cards[2]]}
-    Combine the meanings of the cards and answer in context of question. Answer in russian.
+    Combine the meanings of the cards and answer in context of question. 
+    Write about 8 sentences, 4 paragraphs, 2 sentences for each card and 2 for resume. 
+    Answer in russian.
     """
     messages = [{"role": "user", "content": prompt}]
     completion = client.chat.completions.create(
         model="Qwen/Qwen2.5-Coder-32B-Instruct", 
         messages=messages, 
-        max_tokens=300, 
+        max_tokens=350, 
         temperature=0.7
     )
 
