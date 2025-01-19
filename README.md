@@ -4,7 +4,7 @@
 
 ### Overview
 
-A simple tarot card reading web application built with Streamlit, using Hugging Face Inference API for AI-powered interpretations.
+A simple tarot card reading web application built with Streamlit, using Hugging Face Inference API for AI-powered interpretations. Try it: [tarotfate.streamlit.app](https://tarotfate.streamlit.app/)
 
 ## Features
 
@@ -12,10 +12,6 @@ A simple tarot card reading web application built with Streamlit, using Hugging 
 - Displays card images with corresponding names.
 - Provides AI-generated structured interpretations based on the drawn cards.
 - User-friendly interface powered by Streamlit.
-
-## Live Demo
-
-Try the live version: [tarotfate.streamlit.app](https://tarotfate.streamlit.app/)
 
 ## Installation
 
@@ -43,7 +39,7 @@ pip install -r requirements.txt
 
 ## Running the App
 
-Set up your API key in a `secrets.toml` file under `.streamlit/`:
+Set up your HuggingFace API key in a `secrets.toml` file under `.streamlit/`:
 
 ```
 [secrets]
