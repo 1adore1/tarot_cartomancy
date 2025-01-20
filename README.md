@@ -49,7 +49,7 @@ API_KEY = "your_huggingface_api_key"
 Then, start the application:
 
 ```
-streamlit run tarot_app.py
+streamlit run src/main.py
 ```
 
 ## How It Works
