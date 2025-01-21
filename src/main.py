@@ -56,7 +56,7 @@ def interpret_cards(question, cards):
 
 def main():
     st.title("Tarot Card Reader")
-    question = st.text_input("Ask your question: ")
+    question = st.text_input("Ask your question: ", autocomplete='off')
     if question:
         cards = get_triplet()
         answer = None
