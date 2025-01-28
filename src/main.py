@@ -18,7 +18,7 @@ def get_triplet():
 def display_cards(cards):
     imgs = []
     for card in cards:
-        imgs.append(cv2.imread('cards/' + card_to_img[card]))
+        imgs.append(cv2.cvtColor(cv2.imread('cards/' + card_to_img[card]), cv2.COLOR_BGR2RGB))
     for i, col in enumerate(st.columns(3)):
         with col:
             time.sleep(1)
