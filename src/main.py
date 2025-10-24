@@ -35,7 +35,7 @@ def display_text(text, delay=0.005):
 def interpret_cards(question, cards):
     prompt = f"""
     Question: {question}
-    Cards drawn: {', '.join(cards)}
+    Cards: {', '.join(cards)}
     Card meanings:
     - {cards[0]}: {card_to_meaning[cards[0]]}
     - {cards[1]}: {card_to_meaning[cards[1]]}
@@ -46,10 +46,12 @@ def interpret_cards(question, cards):
     """
     messages = [{"role": "user", "content": prompt}]
     completion = client.chat.completions.create(
-        model="Qwen/Qwen2.5-Coder-32B-Instruct", 
+        model="Qwen/Qwen2.5-7B-Instruct", 
         messages=messages, 
         max_tokens=350, 
-        temperature=0.7
+        temperature=0.3,
+        top_p=0.8,
+        stream=False
     )
 
     return completion.choices[0].message
